@@ -46,7 +46,7 @@ def writetif(outDataset,data,projection,geotransform,order='r'):
     
     if data.ndim==1:
         outBand = outDataset.GetRasterBand(1)
-        resized = np.resize(data,(rows,cols))
+        resized = np.reshape(data,(rows,cols))
         print(np.shape(resized))
         outBand.WriteArray(resized,0,0)
         outBand.FlushCache()

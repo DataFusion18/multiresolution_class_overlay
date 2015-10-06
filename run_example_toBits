@@ -1,0 +1,15 @@
+import pandas as pd
+
+import numpy as np
+
+import gc
+
+from geotiffio import readtif
+from geotiffio import createtif
+from geotiffio import writetif
+
+from mo_functions import multispectralToBits
+
+gc.collect()
+
+multispectralToBits("E:/work/20150731_multi_scale_classif/madmexipcc_8.tif")

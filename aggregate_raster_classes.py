@@ -13,7 +13,7 @@ def swapValues(flattenedNumpyArray,listOfInLists,listOfSwappingValues):
 	corresponding value in listOfSwappingValues
 
 	'''
-
+	aux=flattenedNumpyArray
 	if len(listOfInLists)!=len(listOfSwappingValues):
 		print("lists must be of the same length")
 	else:
@@ -23,5 +23,5 @@ def swapValues(flattenedNumpyArray,listOfInLists,listOfSwappingValues):
 			print(nparray)
 			found_idx = np.in1d(flattenedNumpyArray,nparray)
 			print(listOfSwappingValues[i])
-			flattenedNumpyArray[found_idx]=listOfSwappingValues[i]
-	return(flattenedNumpyArray)
+			aux[found_idx]=listOfSwappingValues[i]
+	return(aux)
