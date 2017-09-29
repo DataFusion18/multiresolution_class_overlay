@@ -27,10 +27,10 @@ def swapValues(flattenedNumpyArray,listOfInLists,listOfSwappingValues):
 		for i in xrange(len(listOfInLists)):
 			# list to numpy array
 			nparray = np.array(listOfInLists[i])
-			print(nparray)
 			found_idx = np.in1d(flattenedNumpyArray,nparray)
 			print(listOfSwappingValues[i])
 			aux[found_idx]=listOfSwappingValues[i]
+	aux = aux.astype(int)
 	return(aux)
 
 

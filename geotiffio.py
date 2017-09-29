@@ -12,6 +12,7 @@ from osgeo import gdal
 from osgeo.gdalconst import GA_ReadOnly 
 from osgeo.gdalconst import GDT_Float32
 from osgeo.gdalconst import GDT_Int16
+from osgeo.gdalconst import GDT_UInt16
 
 def readtif(imagepath):
     gdal.AllRegister()
@@ -23,9 +24,9 @@ def readtif(imagepath):
 
 def createtif(driver,rows,cols,bands,outpath,data_type=32):
     if data_type==32:
-        outDataset = driver.Create(outpath,cols,rows,bands,GDT_Float32)
+        outDataset = driver.Create(outpath,cols,rows,bands,GDT_Float32,[ 'COMPRESS=LZW' ])
     elif data_type==16:
-        outDataset = driver.Create(outpath,cols,rows,bands,GDT_Int16)
+        outDataset = driver.Create(outpath,cols,rows,bands,GDT_UInt16,[ 'COMPRESS=LZW' ])
     return(outDataset)
 
 def writetif(outDataset,data,projection,geotransform,order='r'):
@@ -66,3 +67,5 @@ def writetif(outDataset,data,projection,geotransform,order='r'):
 
     #close the dataset properly
     outDataset = None
+
+    print("done")
